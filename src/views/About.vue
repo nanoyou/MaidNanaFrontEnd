@@ -7,7 +7,7 @@
   <router-link to="/">&lt;&lt;返回主页</router-link>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "About"
 }

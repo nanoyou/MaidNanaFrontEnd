@@ -2,7 +2,7 @@
 <h1>通知管理</h1>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "announcement"
 }
