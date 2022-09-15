@@ -35,7 +35,7 @@
 import { defineComponent } from "vue";
 import Dashboard from "../components/Dashboard.vue";
 </script>
-<script>
+<script lang="ts">
 export default defineComponent({
   name: "Home",
 })
