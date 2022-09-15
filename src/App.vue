@@ -5,6 +5,7 @@
       class="bg-deep-purple-lighten-5"
       v-model="drawer"
     >
+    <!-- 我知道你很急但你先别急，往后菜单栏上会加上图标 -->
     <v-list>
       <v-list-item>
           <v-list-item-title class="title">
@@ -17,7 +18,7 @@
       </v-list-item>
       <v-divider></v-divider>
 
-      <v-list v-for="item in naviMenu" :key="item.title">
+      <v-list v-for="item in naviMenu" :key="item.title" class="text-left">
         <template v-if="!item.subItems" >
           <v-list-item :to="item.path">
             <v-list-item-title>{{item.title}}</v-list-item-title>
@@ -53,12 +54,13 @@
       <v-container fluid>
         <router-view></router-view>
       </v-container>
-    </v-main>
-    <footer id="footer">
+
+      <footer id="footer">
       <p>"NanaWatch" V0.0.0  Maid Nana可视化后台系统</p>
       <p>使用Vue.js 3构建</p>
       <p>Copyright© Nanoyou 项目组 2022</p>
     </footer>
+    </v-main>
 </v-app>
 </template>
 
