@@ -56,33 +56,25 @@
       </v-container>
 
       <footer id="footer">
-      <p>"NanaWatch" V0.0.0  Maid Nana可视化后台系统</p>
+      <p>"NanaWatch" V{{ Package.version }}  Maid Nana可视化后台系统</p>
       <p>使用Vue.js 3构建</p>
       <p>Copyright© Nanoyou 项目组 2022</p>
     </footer>
     </v-main>
 </v-app>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import Package from '../package.json'
 import naviMenu from "./ts/naviMenu";
+const drawer = ref(false)
+const title = ref('欢迎')
 
+</script>
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'App',
-  data(){
-    return{
-      drawer: false,
-      title:"欢迎",
-      naviMenu: naviMenu
-    }
-  },
-  methods:{
-   // setTitle(index: number){
-   //   this.title = this.menuList[index][1].toString();
-   // }
-  }
 })
 
 </script>
