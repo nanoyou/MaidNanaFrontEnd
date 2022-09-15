@@ -73,7 +73,7 @@ export default defineComponent({
   name: 'App',
   data(){
     return{
-      drawer: null,
+      drawer: false,
       title:"欢迎",
       naviMenu: naviMenu
     }
