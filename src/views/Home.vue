@@ -31,12 +31,14 @@
 
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import { defineComponent } from "vue";
 import Dashboard from "../components/Dashboard.vue";
-export default {
+</script>
+<script>
+export default defineComponent({
   name: "Home",
-  components: {Dashboard}
-}
+})
 </script>
 
 <style scoped>
