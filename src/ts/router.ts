@@ -18,7 +18,7 @@ const routes =[{
     path:'/announcement',
     component: () => import('../views/Announcement.vue')
 },{
-    path: '/template',
+    path: '/announcement/template',
     component: () => import('../views/Template.vue')
 }]
 

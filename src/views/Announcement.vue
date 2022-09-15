@@ -1,5 +1,5 @@
 <template>
-<h1>通知管理</h1>
+<h1>公告管理</h1>
 </template>
 
 <script lang="ts">

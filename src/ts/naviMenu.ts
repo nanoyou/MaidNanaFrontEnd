@@ -2,30 +2,25 @@ export default [
     {
         title:'主页',
         icon:'HomeIcon',
-        path:'/'
+        path:'/home',
     },{
-        title:'通知管理',
+        title:'定时公告管理',
         icon:'FileIcon',
-        path:'/announcement'
-    },{
-        title:'模板管理',
-        icon:'FileIcon',
-        path:'/template'
-    },{
-        title:'触发器设置',
-        icon:'FileIcon',
-        path:'/trigger'
-    },{
-        title:'用户设置',
-        icon:'FileIcon',
-        path:'/config'
+        path:'',
+        subItems:[
+            {
+                title:'公告管理',
+                icon:'FileIcon',
+                path:'/announcement'
+            },{
+                title:'模板管理',
+                icon:'FileIcon',
+                path:'/announcement/template'
+            }
+        ]
     },{
         title:'关于我们',
         icon:'FileIcon',
         path:'/about'
-    },{
-        title:'脱出系统',
-        icon:'FileIcon',
-        path:'/logout'
     }
 ]
