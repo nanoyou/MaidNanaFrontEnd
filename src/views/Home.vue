@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-card width="400px">
     <v-row>
       <v-col>
         <v-avatar size="128" class="deep-purple accent-2--border">
@@ -25,20 +25,17 @@
       </h4>
     </v-col>
     </v-row>
+  </v-card>
 
     <dashboard></dashboard>
-  </v-container>
 
 </template>
 
 <script setup lang="ts">
-import { defineComponent } from "vue";
 import Dashboard from "../components/Dashboard.vue";
 </script>
 <script lang="ts">
-export default defineComponent({
-  name: "Home",
-})
+
 </script>
 
 <style scoped>
