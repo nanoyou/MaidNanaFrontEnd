@@ -68,6 +68,7 @@
 </template>
 
 <script setup lang="ts">
+import Package from '../../package.json'
 import naviMenu from '../ts/naviMenu'
 import {ref} from "vue";
 
