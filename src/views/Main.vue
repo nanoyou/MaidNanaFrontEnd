@@ -72,10 +72,8 @@ import Package from '../../package.json'
 import naviMenu from '../ts/naviMenu'
 import {ref} from "vue";
 
-const drawer = ref(false)
+const drawer = ref(true)
 const title = ref('欢迎')
-//const drawer = ref(false)
-//const title = ref('欢迎')
 
 </script>
 

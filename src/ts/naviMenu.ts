@@ -2,7 +2,7 @@ export default [
     {
         title:'主页',
         icon:'HomeIcon',
-        path:'/home',
+        path:'/',
     },{
         title:'定时公告管理',
         icon:'FileIcon',
