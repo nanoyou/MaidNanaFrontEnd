@@ -1,6 +1,6 @@
 <template >
   <div id="page">
-  <v-container class="fill-height position-absolute" fluid id="container">
+  <v-container class="position-absolute" fluid id="container">
     <v-card class="elevation-12" id="login-card">
       <v-window v-model="step" id="login-window">
         <v-window-item
