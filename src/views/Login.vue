@@ -1,8 +1,8 @@
 <template >
   <div id="page">
   <v-container class="fill-height position-absolute" fluid id="container">
-    <v-card class="elevation-12">
-      <v-window v-model="step" >
+    <v-card class="elevation-12" id="login-card">
+      <v-window v-model="step" id="login-window">
         <v-window-item
             id="login"
             :value="1">
@@ -70,4 +70,11 @@
     width: 50%;
     padding: 5px;
   }
+  #login-window {
+    margin: 60px;
+  }
+  #login-card {
+    max-width: 600px;
+  }
+
 </style>
