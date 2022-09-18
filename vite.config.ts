@@ -11,3 +11,18 @@ export default defineConfig({
 		vuetify({ autoImport: true }),
 	]
 })
+
+module.exports = {
+	devServer:{
+		proxy:{
+			'/dev':{
+				target:'https://localhost:5277/api/',
+				changeOrigin:true,
+				secure:false,
+				pathRewrite:{
+					'^/dev':''
+				}
+			}
+		}
+	}
+}

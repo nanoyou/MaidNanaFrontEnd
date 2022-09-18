@@ -11,16 +11,25 @@ export default [
             {
                 title:'公告管理',
                 icon:'FileIcon',
-                path:'/announcement'
+                path:'/announcement',
             },{
                 title:'模板管理',
                 icon:'FileIcon',
-                path:'/announcement/template'
+                path:'/announcement/template',
             }
         ]
     },{
+        title:'用户管理',
+        icon:'FileIcon',
+        path:'/admin/user',
+        role:"admin"
+    },{
+        title:'用户设置',
+        icon:'FileIcon',
+        path:'/config',
+    },{
         title:'关于我们',
         icon:'FileIcon',
-        path:'/about'
+        path:'/about',
     }
 ]

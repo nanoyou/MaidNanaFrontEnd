@@ -21,6 +21,12 @@ const routes =[
         {
             path: '/announcement/template',
             component: () => import('../views/Template.vue')
+        },{
+            path: '/admin/user',
+            component:()=>import('../views/UserManage.vue')
+        },{
+            path:'/config',
+            component:()=>import('../views/Config.vue')
         }
     ]
 },{

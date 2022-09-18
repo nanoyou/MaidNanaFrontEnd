@@ -19,12 +19,13 @@
         <v-divider></v-divider>
 
         <v-list v-for="item in naviMenu" :key="item.title" class="text-left">
-          <template v-if="!item.subItems" >
+          <template v-if="itemVisible(item.role,user.role) && !item.subItems" >
             <v-list-item :to="item.path">
               <v-list-item-title>{{item.title}}</v-list-item-title>
             </v-list-item>
+            <v-divider></v-divider>
           </template>
-          <template v-else>
+          <template v-if="itemVisible(item.role,user.role) && item.subItems">
             <v-list-group :value="item.title">
               <template v-slot:activator="{ props }">
                 <v-list-item v-bind="props">
@@ -37,7 +38,9 @@
                 {{sub.title}}
               </v-list-item>
             </v-list-group>
+            <v-divider></v-divider>
           </template>
+
         </v-list>
 
       </v-list>
@@ -71,10 +74,17 @@
 import Package from '../../package.json'
 import naviMenu from '../ts/naviMenu'
 import {ref} from "vue";
+import {useUserStore} from '../ts/storage'
+
 
 const drawer = ref(true)
 const title = ref('欢迎')
 
+const user = useUserStore()
+
+function itemVisible(itemRole: string, userRole: string) {
+  return (!itemRole || itemRole == userRole)
+}
 </script>
 
 <style scoped>
