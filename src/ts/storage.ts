@@ -2,9 +2,9 @@ import {defineStore} from 'pinia'
 export const useUserStore = defineStore('userInfo',{
     state:()=>{
     return{
-        id:0,
-        name:"田所浩二",
-        qq:1145141919,
+        id:3,
+        name:"公子哥",
+        qq:2646809050,
         role:"admin"
     }
     },

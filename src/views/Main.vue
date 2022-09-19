@@ -61,9 +61,8 @@
       </v-container>
 
       <footer id="footer">
-        <p>"NanaWatch"——Maid Nana可视化后台系统    V{{ Package.version }}</p>
-        <p>Go Version: go1.19.1</p>
-        <p>使用Vue.js 3构建</p>
+        <p>"NanaWatch"——Maid Nana可视化后台系统</p>
+        <p>V{{ Package.version }}</p>
         <p>Nanoyou 项目组 2022</p>
       </footer>
     </v-main>

@@ -11,7 +11,7 @@ export default defineConfig({
 		vuetify({ autoImport: true }),
 	]
 })
-
+/*
 module.exports = {
 	devServer:{
 		proxy:{
@@ -26,3 +26,4 @@ module.exports = {
 		}
 	}
 }
+*/

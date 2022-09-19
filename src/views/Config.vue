@@ -11,7 +11,7 @@
       </v-container>
       </v-col>
       <v-col>
-        <v-avatar size="128" rectangle><v-img src="https://s6.jpg.cm/2022/09/19/PU72CE.webp"></v-img></v-avatar>
+        <v-avatar size="128" rectangle><v-img :src="userQQAvatar"></v-img></v-avatar>
       </v-col>
     </v-row>
     <v-btn color="blue-darken-2">修改信息</v-btn>
@@ -22,6 +22,8 @@
 <script setup lang="ts">
 import {useUserStore} from '../ts/storage'
 const user = useUserStore()
+
+const userQQAvatar = `http://q1.qlogo.cn/g?b=qq&nk=${user.qq}&s=100`
 
 </script>
 
