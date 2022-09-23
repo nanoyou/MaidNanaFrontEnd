@@ -5,24 +5,55 @@
       <v-window v-model="step" id="login-window">
         <v-window-item
             :value="1">
-          <h2 class="">登录</h2>
-            <v-form>
-          <v-text-field
-              label="用户名"
-              clearable></v-text-field>
-              <div>
-                <v-text-field
-                    label="密码"
-                    clearable
-                    :type="'password'"
-                ></v-text-field><a href="#" @click="" class="text-right">え？忘记密码了？</a>
-              </div>
 
-          <v-btn color="purple-darken-1" @click="clickLogin">登录</v-btn>
-          <br/>
-          </v-form>
-          <br/>
-          <a href="#" @click="step++" >え？没有账号？注册一个喵</a><br/>
+          <v-row>
+            <v-col>
+            <v-alert
+                v-model="alertShow"
+                border="left"
+                type="warning"
+                closable="closable">
+              {{ alertText }}
+            </v-alert>
+          </v-col>
+          </v-row>
+
+          <v-row>
+            <v-col>
+              <h2 class="">登录</h2>
+            </v-col>
+          </v-row>
+
+          <v-row>
+            <v-col>
+              <v-form>
+                <v-row><v-col>
+                  <v-text-field
+                      label="用户名"
+                      v-model="userName"
+                      clearable></v-text-field>
+                </v-col></v-row>
+                <v-row>
+                  <v-col><v-text-field
+                      label="密码"
+                      clearable
+                      v-model="password"
+                      :type="'password'"
+                  ></v-text-field></v-col>
+                  <v-col style="margin-top: 5%;"><a href="#" @click="" class="text-right">え？忘记密码了？</a></v-col>
+                </v-row>
+
+                <v-btn color="purple-darken-1" @click="clickLogin(this)">登录</v-btn>
+                <br/><!--css-->
+              </v-form>
+            </v-col>
+          </v-row>
+
+          <v-row>
+            <v-col>
+              え？没有账号？<a href="#" @click="step++" >注册一个</a>喵
+            </v-col>
+          </v-row>
 
         </v-window-item>
         <v-window-item
@@ -41,7 +72,14 @@
                 label="确认密码"
                 clearable
                 :type="'password'"></v-text-field>
-            <v-btn>注册</v-btn><br />
+            <v-tooltip bottom >
+            <v-text-field
+              label="验证码"
+              ></v-text-field>
+            <span>芝士提示</span>
+            </v-tooltip>
+            <br/><br/> <!--css-->
+            <v-btn>注册</v-btn><br /><!--css-->
           </v-form>
           <br/>
           <a href="#" @click="step--" >え？已有账号？那就登录喵</a>
@@ -54,12 +92,52 @@
 
 <script setup lang="ts">
   import {ref} from "vue";
+  import {useDebugInfoStore} from "../ts/storage";
+  import {useRouter} from "vue-router";
+  import axios from "axios";
 
+  const debugInfo = useDebugInfoStore()
   const step = ref(0)
+  const router = useRouter()
 
-  function clickLogin(){
-    //this.axios.defaults.baseURL='/dev'
+  const userName = ref("")
+  const password = ref("")
 
+  const alertShow = ref(false)
+  const alertText = ref("Error")
+  async function clickLogin() {
+    if (userName.value == "" || password.value == "") {
+      alertShow.value = true
+      alertText.value = "用户名或密码不能为空捏！魂淡"
+      return
+    }
+
+    const loginResponse = ref({
+      "ok": false,
+      "error": "",
+      "error_message": ""
+    })
+
+    await axios.post(`user/${userName.value}/login`, {
+      password: password.value
+    }).then((response: any) => {
+      loginResponse.value = response.data
+      console.log(loginResponse)
+    })
+
+
+    if (!loginResponse.value.ok) {
+      console.log(loginResponse.value)
+      alertShow.value = true
+      alertText.value = loginResponse.value.error_message
+      return
+    }
+
+    axios.get("about").then((response: any) => {
+      debugInfo.goVersion = response.data.GoVersion
+    })
+
+    await router.push("/")
   }
 </script>
 
@@ -81,11 +159,9 @@
   }
   #login-window {
     margin: 60px;
-
   }
   #login-card {
     width: 600px;
     max-width: 600px;
   }
-
 </style>

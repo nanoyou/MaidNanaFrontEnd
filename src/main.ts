@@ -8,12 +8,14 @@ import router from './ts/router'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 
-const storage = createPinia()
+
+axios.defaults.baseURL = 'http://127.0.0.1:5277/api'
 
 loadFonts()
 createApp(App)
     .use(vuetify)
     .use(router)
-    .use(storage)
+    .use(createPinia())
     .use(VueAxios,axios)
     .mount('#app')
+

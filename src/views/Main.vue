@@ -75,15 +75,17 @@ import naviMenu from '../ts/naviMenu'
 import {ref} from "vue";
 import {useUserStore} from '../ts/storage'
 
-
 const drawer = ref(true)
 const title = ref('欢迎')
 
 const user = useUserStore()
 
+
 function itemVisible(itemRole: string, userRole: string) {
-  return (!itemRole || itemRole == userRole)
+  return (import.meta.env.DEV ||!itemRole || itemRole == userRole)
 }
+
+
 </script>
 
 <style scoped>

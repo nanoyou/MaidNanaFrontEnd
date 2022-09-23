@@ -9,21 +9,16 @@ export default defineConfig({
   plugins: [
 		vue(),
 		vuetify({ autoImport: true }),
-	]
-})
-/*
-module.exports = {
-	devServer:{
+	],
+	server:{
 		proxy:{
-			'/dev':{
+			'/api':{
 				target:'https://localhost:5277/api/',
 				changeOrigin:true,
 				secure:false,
-				pathRewrite:{
-					'^/dev':''
-				}
+				rewrite:(path)=>
+					path.replace("^/api",'')
 			}
 		}
 	}
-}
-*/
+})

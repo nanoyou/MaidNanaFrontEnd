@@ -5,7 +5,7 @@ export const useUserStore = defineStore('userInfo',{
         id:3,
         name:"公子哥",
         qq:2646809050,
-        role:"admin"
+        role:"announcement"
     }
     },
 
@@ -14,6 +14,12 @@ export const useUserStore = defineStore('userInfo',{
     },
 
     actions:{
+        setName(value: string){
+            this.name = value
+        },
+        setRole(value: string){
+            this.role = value
+        },
     }
 })
 
@@ -34,7 +40,9 @@ export const useDebugInfoStore = defineStore('debugInfo',{
     },
 
     actions:{
-
+        setGoVer(value:string){
+            this.goVersion = value
+        }
     }
 })
 
