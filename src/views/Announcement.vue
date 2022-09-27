@@ -15,7 +15,7 @@
       </thead>
       <tbody>
       <tr v-for="item in announcements" :key="item.uuid">
-        <td>{{ item.alias }}</td><td>{{ item.trigger }}</td>
+        <td>{{ item.alias }}</td><td>{{ item.triggers }}</td>
       <td style="margin-top: 2%;">
         <v-btn dark color="blue-darken-2">编辑</v-btn>
         <v-btn color="error">删除</v-btn></td></tr>
@@ -25,35 +25,29 @@
 
 </template>
 
-<script lang="ts">
-export default {
-  name: "announcement",
-  data(){
-    return{
-      announcements:[
-        {
-          uuid:'0d2cc79d-17eb-4790-b5e9-37c499dd2fc9',
-          alias:'雷普数学',
-          triggers:[],
-          groups:['114514'],
-          body:{
-            uuid:'db41d0e7-7a29-4d8b-a04c-90210fcf49c0',
-            content:'哈密瓜丝来哈密瓜，哈密瓜丝伊格里纳米',
-          }
-        },{
-          uuid:'0d2cc79d-17eb-4790-b5e9-37c499dd2fc9',
-          alias:'野兽诗歌',
-          trigger:[],
-          groups:['1919810'],
-          body:{
-            uuid:'db41d0e7-7a29-4d8b-a04c-90210fcf49c0',
-            content:'逸一时，误一世',
-          }
-        }
-      ]
-    }
+<script setup lang="ts">
+import {ref} from "vue";
+
+const announcements = ref([
+  {
+    uuid:1,
+    alias:"计算机组成原理",
+    triggers:[],
+    memo:"芝士计算机组成原理"
+  },{
+    uuid:2,
+    alias:"马克思主义基本原理",
+    triggers:[]
+  },{
+    uuid:3,
+    alias:"软件需求设计与分析",
+    triggers: []
+  },{
+    uuid:4,
+    alias: "概率论与数理统计",
+    triggers: []
   }
-}
+])
 </script>
 <style scoped>
 </style>
