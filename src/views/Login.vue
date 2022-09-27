@@ -118,12 +118,11 @@
       "error_message": ""
     })
 
-    await axios.post(`user/${userName.value}/login`, {
+    const response = await axios.post(`user/${userName.value}/login`, {
       password: password.value
-    }).then((response: any) => {
-      loginResponse.value = response.data
-      console.log(loginResponse)
     })
+    loginResponse.value = response.data
+    console.log(loginResponse)
 
 
     if (!loginResponse.value.ok) {
