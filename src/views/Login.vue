@@ -12,7 +12,7 @@
                 v-model="alertShow"
                 border="left"
                 type="warning"
-                closable="closable">
+                :closable="true">
               {{ alertText }}
             </v-alert>
           </v-col>
@@ -132,9 +132,8 @@
       return
     }
 
-    axios.get("about").then((response: any) => {
-      debugInfo.goVersion = response.data.GoVersion
-    })
+    const aboutResponse = await axios.get("about")
+    debugInfo.goVersion = aboutResponse.data.GoVersion
 
     await router.push("/")
   }

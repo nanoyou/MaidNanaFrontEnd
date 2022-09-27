@@ -1,13 +1,17 @@
 <template>
   <v-container>
-    <v-card class="bg-indigo-lighten-3" style="width:auto;min-width:1000px">
-      <v-row>
-        <v-col><v-card-title style="padding-left: 1%">用户管理</v-card-title></v-col>
-        <v-col style="padding-top: 3%;padding-right: 5%">
+    <v-card class="bg-indigo-lighten-3" style="width:auto">
+      <v-row style="align-items: center">
+        <v-col><v-card-title>用户管理</v-card-title></v-col>
+        <v-col>
+          <v-text-field></v-text-field>
+        </v-col>
+        <v-col><v-btn>搜索</v-btn></v-col>
+        <v-col>
           <v-btn class="float-right text-white" color="green">新增</v-btn>
         </v-col>
       </v-row>
-      <v-table>
+      <v-table :search="search">
         <thead class="bg-indigo-lighten-4 text-center">
         <tr class="text-center">
           <th class="text-center">ID</th>
@@ -86,6 +90,7 @@
 import {ref} from "vue";
 
 const dialogShow = ref(false)
+const search = ref("search")
 
 const userList = ref([
   {
@@ -120,7 +125,6 @@ function dialogDisplay(status: boolean,user:number){
 
   }
 }
-function getUser(){}
 </script>
 
 <style scoped>

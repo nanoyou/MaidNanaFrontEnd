@@ -53,10 +53,8 @@
       <v-row style="align-items: center">
         <v-col><v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon></v-col>
         <v-col><v-toolbar-title>{{title}}</v-toolbar-title></v-col>
-        <v-col><v-text-field></v-text-field></v-col>
-        <v-col><v-btn>搜索</v-btn></v-col>
+        <v-col><v-spacer></v-spacer></v-col>
         <v-col><v-avatar size="32" class="bg-white">头像</v-avatar></v-col>
-        <v-col>这是啥来着，我给忘了</v-col>
       </v-row>
     </v-app-bar>
 
